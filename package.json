@@ -1,6 +1,6 @@
 {
   "name": "grunt-angularjs-thrift",
-  "description": "Grunt plugin for uploading an APK or API artifact to Test Fairy. Useful for Cordova/Phonegap hybrid apps.",
+  "description": "Grunt plugin for uploading an APK or IPA to Test Fairy. Useful for Cordova/PhoneGap hybrid apps.",
   "version": "1.0.0",
   "author": {
     "name": "Kevin Massaroni",
