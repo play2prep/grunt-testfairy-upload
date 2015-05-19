@@ -1,5 +1,5 @@
-Thrift Angular Code Generator
-=============================
+Grunt TestFairy Upload
+======================
 Upload an APK or IPA file to Test Fairy, with your grunt build script. This is useful for Cordova or PhoneGap hybrid apps.
 
 Example Gruntfile.js Configuration
