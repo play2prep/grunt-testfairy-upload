@@ -1,6 +1,6 @@
 Grunt TestFairy Upload
 ======================
-Upload an APK or IPA file to Test Fairy, with your grunt build script. This is useful for Cordova or PhoneGap hybrid apps.
+Upload an APK or IPA file to [Test Fairy](https://www.testfairy.com/), with your grunt build script. This is useful for Cordova or PhoneGap hybrid apps.
 
 Example Gruntfile.js Configuration
 ==================================
