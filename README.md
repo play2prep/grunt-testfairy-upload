@@ -16,11 +16,13 @@ Example Gruntfile.js Configuration
         'testfairy-upload': {
           staging: {
            apiKey: 'XYZ123',
-           artifactFile: 'platforms/ios/build/staging/MyApp.ipa'
+           artifactFile: 'platforms/ios/build/staging/MyApp.ipa',
+           comment: 'Uploaded on: ' + (new Date())
           },
           testing: {
            apiKey: 'ABC123',
-           artifactFile: 'platforms/ios/build/testing/MyApp.ipa'
+           artifactFile: 'platforms/ios/build/testing/MyApp.ipa',
+           comment: 'Uploaded on: ' + (new Date())
           }
         }
       });
