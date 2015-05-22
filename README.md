@@ -13,7 +13,7 @@ Example Gruntfile.js Configuration
 
       // configure the grunt plugin
       grunt.initConfig({
-        'testfairy-upload': {
+        'testfairyUpload': {
           staging: {
            apiKey: 'XYZ123',
            artifactFile: 'platforms/ios/build/staging/MyApp.ipa',
