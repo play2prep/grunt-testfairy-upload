@@ -18,7 +18,8 @@ module.exports = function uploadToTestFairy(options) {
     }
   } catch (e) {
     grunt.fail.warn('failed fs.existsSync: ');
-    grunt.fail.warn(e);  }
+    grunt.fail.warn(e);
+  }
 
   try {
   	var deferred = q.defer();
@@ -27,23 +28,18 @@ module.exports = function uploadToTestFairy(options) {
     grunt.fail.warn(e);
   }
   
-  console.log(options);
-  
   var formData = {
     api_key: options.apiKey,
     file: fs.createReadStream(options.artifactPath),
     comment: options.comment
   };
   
-  console.log(formData);
-
   try {
     request.post(
       {url: 'https://app.testfairy.com/api/upload/', formData: formData},
       function postCallback(error, httpResponse, body) {
         try {
           var results = {error: error, httpResponse: httpResponse, body: body};
-          console.log(results);
           if (!!error) {
             deferred.reject(results);
           } else {
