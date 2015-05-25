@@ -30,7 +30,7 @@ module.exports = function gruntTestfairyUpload(grunt) {
     }
 
     try {
-        upload(options).then(function onSuccess(response) {
+      upload(options).then(function onSuccess(response) {
         grunt.log.ok('Success: Uploaded to Test Fairy.');
         if (!!response) {
           grunt.verbose.oklns(JSON.stringify(response));
