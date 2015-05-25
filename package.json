@@ -1,7 +1,7 @@
 {
   "name": "grunt-testfairy-upload",
   "description": "Grunt plugin for uploading an APK or IPA to Test Fairy. Useful for Cordova/PhoneGap hybrid apps.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Kevin Massaroni",
     "email": "kmassaroni@play2prep.com"
