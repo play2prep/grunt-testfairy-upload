@@ -7,9 +7,7 @@ module.exports = function gruntTestfairyUpload(grunt) {
     var done = this.async();
 
     function fail(reason) {
-      grunt.fail.warn('Failed uploading to Test Fairy. Reason: ');
-      grunt.fail.warn(reason);
-
+      grunt.fail.warn('Failed uploading to Test Fairy. Reason: ' + reason);
       done();
     }
 
