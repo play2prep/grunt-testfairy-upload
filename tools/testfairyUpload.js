@@ -21,19 +21,16 @@ module.exports = function uploadToTestFairy(options, onFail) {
     }
   }
 
-  try {
-    if (!fs.existsSync(options.artifactPath)) {
-      throw new Error('Missing artifact file: ' + options.artifactPath);
-    }
-  } catch (e) {
-    fail('failed fs.existsSync: ');
-    fail(e);
-    return;
+  var artifactPath = options.artifactPath;
+
+  if (!fs.existsSync(artifactPath)) {
+    fail('Missing artifact file: ' + artifactPath);
+    return deferred.promise;
   }
 
   var formData = {
     api_key: options.apiKey,
-    file: fs.createReadStream(options.artifactPath),
+    file: fs.createReadStream(artifactPath),
     comment: options.comment
   };
   
@@ -57,6 +54,7 @@ module.exports = function uploadToTestFairy(options, onFail) {
   } catch(e) {
     fail('failed request: ');
     fail(e);
+    return deferred.promise;
   }
 
   return deferred.promise;
