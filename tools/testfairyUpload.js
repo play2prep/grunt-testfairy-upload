@@ -10,24 +10,27 @@ var request = require('request');
  *
  * @param options
  */
-module.exports = function uploadToTestFairy(options) {
-    
+module.exports = function uploadToTestFairy(options, onFail) {
+  var deferred = q.defer();
+
+  function fail(msg) {
+    deferred.reject(msg);
+
+    if (!!onFail) {
+      onFail(msg);
+    }
+  }
+
   try {
     if (!fs.existsSync(options.artifactPath)) {
       throw new Error('Missing artifact file: ' + options.artifactPath);
     }
   } catch (e) {
-    grunt.fail.warn('failed fs.existsSync: ');
-    grunt.fail.warn(e);
+    fail('failed fs.existsSync: ');
+    fail(e);
+    return;
   }
 
-  try {
-  	var deferred = q.defer();
-  } catch (e) {
-    grunt.fail.warn('failed deferred: ');
-    grunt.fail.warn(e);
-  }
-  
   var formData = {
     api_key: options.apiKey,
     file: fs.createReadStream(options.artifactPath),
@@ -46,14 +49,14 @@ module.exports = function uploadToTestFairy(options) {
             deferred.resolve(results);
           }
         } catch(e) {
-          grunt.fail.warn('failed callback: ');
-          grunt.fail.warn(e);  
+          fail('failed callback: ');
+          fail(e);
         }
       }
     );
   } catch(e) {
-    grunt.fail.warn('failed request: ');
-    grunt.fail.warn(e);
+    fail('failed request: ');
+    fail(e);
   }
 
   return deferred.promise;
